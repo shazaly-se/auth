@@ -1,0 +1,51 @@
+﻿@model EmployeeCreateViewModel
+
+
+@{ 
+    ViewBag.Title = "Create Employee";
+}
+
+<form enctype="multipart/form-data" asp-action="Create" asp-controller="Home" method="post">
+    <div class="card">
+   <div class="card-header text-danger" asp-validation-summary="All">
+
+   </div>
+   <div class="card-body">
+       <div class="mb-3">
+           <label asp-for="Name" class="form-label"></label>
+           <input asp-for="Name" class="form-control">
+           <span asp-validation-for="Name" class="text-danger"></span>
+       </div>
+
+       <div class="mb-3">
+           <label asp-for="Email" class="form-label"></label>
+           <input asp-for="Email" class="form-control">
+           <span asp-validation-for="Email" class="text-danger"></span>
+       </div>
+
+       <div class="mb-3">
+           <label asp-for="Department" class="form-label"></label>
+           <select asp-for="Department" class="form-control" asp-items="Html.GetEnumSelectList<Dept>()">
+               <option value="">Please select</option>
+           </select>
+           <span asp-validation-for="Department" class="text-danger"></span>
+       </div>
+
+       <div class="mb-3">
+           <label asp-for="Photo" class="form-label"></label>
+           <div class="custom-file">
+               <input multiple asp-for="Photo" class="form-control custom-file-input">
+               <label class="custom-file-label"></label>
+           </div>
+       </div>
+
+       <div class="mb-3">
+           <button type="submit" class="btn btn-primary mb-3">Create</button>
+       </div>
+
+    
+
+   </div>
+        </div>
+
+</form>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Employee>
+@{ 
+ 
+    ViewBag.Title = "Employee List";
+}
+<div class="row">
+
+
+    @foreach (var employee in Model)
+    {
+        var photoPath = "~/images/" + (employee.PhotoPath ?? "car.jpeg");
+    <div class="col-md-3">
+        <div class="card" >
+            <div class="card-header">@employee.Name</div>
+            <img src="@photoPath" asp-append-version="true" class="card-img-top imageThumbnail" alt="image">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a asp-action="Details" asp-controller="Home" asp-route-id="@employee.Id" class="btn btn-primary">View</a>
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@employee.Id" class="btn btn-warning">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+
+    }
+</div>
+      
